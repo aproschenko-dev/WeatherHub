@@ -36,9 +36,9 @@ public:
     char reboot_delay[5] = "10";
 
     // address to push module data
-    char add_data_url[200] = "http://note4me.ru/add.php";
-    // validation code used to identify user's module
-    char validation_code[17] = "F65FE7F9ECAF26EC";
+    char add_data_url[200] = "http://weatherhub.ru/add.php";
+    // validation code used to identify user's module - 16 alpha-digits
+    char validation_code[17] = "0000000000000000";
 
 private:
 };

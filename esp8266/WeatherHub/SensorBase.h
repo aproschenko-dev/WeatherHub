@@ -7,6 +7,7 @@
 #define SENSOR_DHT22 1
 #define SENSOR_DHT21 2
 #define SENSOR_AM2301 2
+#define SENSOR_DHT11 3
 
 class SensorBase
 {

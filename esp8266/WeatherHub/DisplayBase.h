@@ -8,6 +8,7 @@
 
 #define DISPLAY_BASE 0
 #define DISPLAY_LCD_I2C 1
+#define DISPLAY_OLED 2
 
 class DisplayBase
 {

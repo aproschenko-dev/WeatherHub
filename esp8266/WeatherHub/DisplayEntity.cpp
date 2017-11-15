@@ -1,5 +1,6 @@
 #include "DisplayEntity.h"
 #include "DisplayLCDI2C.h"
+#include "DisplayOLED.h"
 
 DisplayEntity::DisplayEntity(int displayType)
 {
@@ -12,6 +13,10 @@ DisplayEntity::DisplayEntity(int displayType)
   if (displayType == DISPLAY_LCD_I2C)
   {
     this->display = new DisplayLCDI2C();
+  }
+  if (displayType == DISPLAY_OLED)
+  {
+    this->display = new DisplayOLED();
   }
 }
 

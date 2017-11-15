@@ -39,9 +39,9 @@ const int ONE_SECOND = 1000;
 // Sensors init
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define sensorsCount 2
-int sensorTypes[sensorsCount] = {SENSOR_DHT22, SENSOR_DHT22};
-int sensorPins[sensorsCount] = {2, 0};
+#define sensorsCount 1
+int sensorTypes[sensorsCount] = {SENSOR_DHT11};
+int sensorPins[sensorsCount] = {4};
 SensorEntity** sensorEntities;
 SensorOutputData* outputDatas;
 
@@ -49,7 +49,7 @@ SensorOutputData* outputDatas;
 // Display init
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DisplayEntity display = DisplayEntity(DISPLAY_LCD_I2C);
+DisplayEntity display = DisplayEntity(DISPLAY_OLED);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Reboot routines
@@ -311,12 +311,9 @@ void setupSensors()
 void setupDisplay()
 {
     DisplayConfig displayConfig = DisplayConfig();
-    displayConfig.address = 0x27;
-    displayConfig.rows = 2;
-    displayConfig.cols = 16;
-    displayConfig.sda = 4;
-    displayConfig.scl = 5;
-    displayConfig.printSensorTitle = false;    
+    displayConfig.address = 0x3c;
+    displayConfig.sda = D3;
+    displayConfig.scl = D5;
 
     display.setup(displayConfig);
     display.clear();
@@ -339,6 +336,7 @@ void requestSensorValues()
 
 void renderSensorValues()
 {
+    display.clear();
     for (int i = 0; i < sensorsCount; i++)
     {
         SensorOutputData sensorData = outputDatas[i];
