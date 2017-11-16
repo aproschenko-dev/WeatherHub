@@ -10,6 +10,8 @@
 #define DISPLAY_LCD_I2C 1
 #define DISPLAY_OLED 2
 
+#define DISPLAY_OLED_ADDRESS 0x3c
+
 class DisplayBase
 {
 	protected:

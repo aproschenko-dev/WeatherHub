@@ -40,8 +40,8 @@ const int ONE_SECOND = 1000;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define sensorsCount 1
-int sensorTypes[sensorsCount] = {SENSOR_DHT11};
-int sensorPins[sensorsCount] = {4};
+int sensorTypes[sensorsCount] = {SENSOR_SHT21};
+int sensorPins[sensorsCount] = {0};
 SensorEntity** sensorEntities;
 SensorOutputData* outputDatas;
 
@@ -49,7 +49,7 @@ SensorOutputData* outputDatas;
 // Display init
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DisplayEntity display = DisplayEntity(DISPLAY_OLED);
+DisplayEntity display = DisplayEntity(DISPLAY_BASE);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Reboot routines
@@ -311,9 +311,9 @@ void setupSensors()
 void setupDisplay()
 {
     DisplayConfig displayConfig = DisplayConfig();
-    displayConfig.address = 0x3c;
-    displayConfig.sda = D3;
-    displayConfig.scl = D5;
+    displayConfig.address = DISPLAY_OLED_ADDRESS;
+    displayConfig.sda = SDA_PIN;
+    displayConfig.scl = SCK_PIN;
 
     display.setup(displayConfig);
     display.clear();

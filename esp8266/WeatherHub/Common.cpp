@@ -92,7 +92,7 @@ bool isIPValid(const char * IP)
 
 String floatToString(float f, int valueType, int digits, int decimals)
 {
-    if (isnan(f) || f == 0.0 || f < 0.0)
+    if (isnan(f))
     {
         return "-";
     }
