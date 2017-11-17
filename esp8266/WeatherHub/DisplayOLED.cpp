@@ -23,32 +23,53 @@ void DisplayOLED::clear()
 
 void DisplayOLED::printData(SensorOutputData sensorData)
 {
-  DisplayBase::printData(sensorData);
+    DisplayBase::printData(sensorData);
 
-  String text = "T ";
-  if (isnan(sensorData.temperature))
-  {
-    text += "- ";
-  }
-  else
-  {
-    text += floatToString(sensorData.temperature, VALUE_TEMP, 3, 1);
-    text += "° ";
-  }
+    String text = "";
 
-  text += "H ";
+    if (sensorData.hasTemperature)
+    {
+        text += "T ";
+        if (isnan(sensorData.temperature))
+        {
+          text += "- ";
+        }
+        else
+        {
+          text += floatToString(sensorData.temperature, VALUE_TEMP, 3, 1);
+          text += "° ";
+        }
+    }
 
-  if (isnan(sensorData.humidity))
-  {
-    text += "-";
-  }
-  else
-  {
-    text += floatToString(sensorData.humidity, VALUE_HUMIDITY, 3, 1);
-    text += "%";
-  }
+    if (sensorData.hasHumidity)
+    {
+        text += "H ";
+        if (isnan(sensorData.humidity))
+        {
+          text += "-";
+        }
+        else
+        {
+          text += floatToString(sensorData.humidity, VALUE_HUMIDITY, 3, 1);
+          text += "% ";
+        }
+    }
 
-  this->printLine(text, sensorData.sensorOrder);
+    if (sensorData.hasLightness)
+    {
+        text += "L: ";
+        if (isnan(sensorData.lightness))
+        {
+          text += "-";
+        }
+        else
+        {
+          text += floatToString(sensorData.lightness, VALUE_ILLUMINATION);
+          text += " lux";
+        }
+    }
+
+    this->printLine(text, sensorData.sensorOrder);
 }
 
 void DisplayOLED::printLine(String text, int row)

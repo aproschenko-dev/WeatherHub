@@ -3,6 +3,7 @@
 #include "SensorAM2301.h"
 #include "SensorDHT11.h"
 #include "SensorSHT21.h"
+#include "SensorBH1750.h"
 
 SensorEntity::SensorEntity(int sensorType)
 {
@@ -25,6 +26,10 @@ SensorEntity::SensorEntity(int sensorType)
     else if (sensorType == SENSOR_SHT21 || sensorType == SENSOR_HTU21)
     {
         this->sensor = new SensorSHT21();
+    }
+    else if (sensorType == SENSOR_BH1750)
+    {
+        this->sensor = new SensorBH1750();
     }
 }
 

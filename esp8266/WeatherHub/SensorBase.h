@@ -10,6 +10,7 @@
 #define SENSOR_DHT11 3
 #define SENSOR_SHT21 4
 #define SENSOR_HTU21 4
+#define SENSOR_BH1750 5
 
 #define SDA_PIN D3
 #define SCK_PIN D5

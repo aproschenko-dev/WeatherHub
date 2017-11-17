@@ -28,4 +28,10 @@ void DisplayBase::printData(SensorOutputData sensorData)
 		String humidityStr = floatToString(sensorData.humidity, VALUE_HUMIDITY);
 		Serial.println(String("H: " + humidityStr));
 	}
+
+	if (sensorData.hasLightness)
+	{
+		String lightnessStr = floatToString(sensorData.lightness, VALUE_ILLUMINATION);
+		Serial.println(String("L: " + lightnessStr));
+	}
 }
