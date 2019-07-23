@@ -1,10 +1,13 @@
 var config = {
-    validationCode: "0000000000000000",
-    addDataUrl: "http://192.168.1.44/aqara.php",
     serverPort: 9898,
     multicastAddress: '224.0.0.50',
     multicastPort: 4321,
-    sensorDelay: 30
+    sensorDelay: 60,
+    databaseHost: "localhost",
+    databaseUser: "phpmyadmin",
+    databasePassword: "root",
+    databaseBase: "homehub",
+    gatewayPassword: "5uym4gcadgt4ph9f"
 };
 
 module.exports = config;

@@ -17,9 +17,9 @@ public:
     // module name
     char module_name[32] = "Module-01";
     // wifi network SSID
-    char sta_ssid[32] = "AndroidAP";
+    char sta_ssid[32] = "Xiaomi_7C5A";
     // wifi network password
-    char sta_pwd[32] = "qwertyui";
+    char sta_pwd[32] = "mi-alexpp";
 
     // 0 - using static IP mode, 1 - dynamic IP mode
     char static_ip_mode[2] = "0";

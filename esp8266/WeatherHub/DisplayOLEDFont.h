@@ -1,5 +1,5 @@
 // Created by http://oleddisplay.squix.ch/ 
-const char Monospaced_plain_14[] PROGMEM = {
+const unsigned char Monospaced_plain_14[] PROGMEM = {
 	0x08, // Width: 8
 	0x11, // Height: 17
 	0x20, // First Char: 32

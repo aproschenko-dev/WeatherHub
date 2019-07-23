@@ -3,7 +3,9 @@ var config = {
     serverPort: 9898,
     multicastAddress: '224.0.0.50',
     multicastPort: 4321,
-    sensorDelay: 30
+    sensorDelay: 30,
+    htSensorIds: [20046, 52585, 59408],
+    htSensorPins: [["V6", "V7"], ["V8", "V9"], ["V10", "V11"]]
 };
 
 module.exports = config;

@@ -7,14 +7,28 @@ const serverSocket = dgram.createSocket('udp4');
 const multicastAddress = config.multicastAddress;
 const multicastPort = config.multicastPort;
 const sensorDelay = config.sensorDelay;
+var htSensorIds = config.htSensorIds;
+var htSensorPins = config.htSensorPins;
 
 var sidToAddress = {};
 var sidToPort = {};
 var gatewayAddress;
 
 function sendSensorData(sensorId, temperature, humidity, gatewayAddress) {
+    var htSensorIndex = -1;
+    for (var i = 0; i < htSensorIds.length; i++) {
+        var htSensorId = htSensorIds[i];
+        if (htSensorId == sensorId) {
+            var sensorPins = htSensorPins[i];
+            updatePinValue(sensorPins[0], temperature);
+            updatePinValue(sensorPins[1], humidity);
+        }
+    }
+}
+
+function updatePinValue(pin, value) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    request(config.blynkUrl + "/update/V6?value=" + temperature,
+    request(config.blynkUrl + "/update/" + pin + "?value=" + value,
         function (error, response, body) {
             if (error) {
                 console.log(error);

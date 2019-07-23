@@ -27,7 +27,7 @@ byte hydroIcon[8] = //icon for water droplet
 void DisplayLCDI2C::setup(DisplayConfig config)
 {
   this->display = new LiquidCrystal_I2C(config.address, config.cols, config.rows);
-  this->display->begin(config.sda, config.scl);
+  this->display->begin();
   this->display->backlight();
   this->display->createChar(1, termoIcon);
   this->display->createChar(2, hydroIcon);
